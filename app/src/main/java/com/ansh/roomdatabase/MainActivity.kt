@@ -2,6 +2,9 @@ package com.ansh.roomdatabase
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import androidx.lifecycle.Observer
 import androidx.room.Room
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,5 +21,11 @@ class MainActivity : AppCompatActivity() {
             database.contactDao().insertContact(Contact(0,"himan","9999"))
         }
 
+    }
+
+    fun getData(view: View) {
+        database.contactDao().getContact().observe(this, Observer{
+            Log.d("data",it.toString())
+        })
     }
 }
