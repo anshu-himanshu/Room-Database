@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.room.Room
 import kotlinx.coroutines.GlobalScope
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     fun getData(view: View) {
         database.contactDao().getContact().observe(this, Observer{
             Log.d("data",it.toString())
+            val tv = findViewById<TextView>(R.id.data)
+            tv.text = it.toString()
         })
     }
 }
