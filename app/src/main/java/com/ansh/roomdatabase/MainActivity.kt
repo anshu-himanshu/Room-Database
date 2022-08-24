@@ -18,10 +18,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         database = ContactDatabase.getDatabase(this)
-        val database2 = ContactDatabase.getDatabase(this)
 
-        GlobalScope.launch{
-            database.contactDao().insertContact(Contact(0,"himan","9999", Date(),1))
+        GlobalScope.launch {
+            database.contactDao().insertContact(Contact(0, "himan", "9999",Date(), 1))
         }
 
     }
